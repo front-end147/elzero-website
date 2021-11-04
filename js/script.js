@@ -40,14 +40,14 @@ window.addEventListener("scroll", () => {
   }
   // scroll section
   // to make progress bar fill with animate when the user reach to it
-  if (window.scrollY >= skillsSection.offsetTop - 300) {
+  if (window.scrollY >= skillsSection.offsetTop - 200) {
     spans.forEach((span) => {
       span.style.width = `${span.dataset.percent}%`;
     });
   }
   // if section is in the viewport the main__heading will be animate like the hover
   sections.forEach((section) => {
-    if (section.getBoundingClientRect().top >= -400 && section.getBoundingClientRect().top <= 150) {
+    if (section.getBoundingClientRect().top >= -500 && section.getBoundingClientRect().top <= 150) {
       section.classList.add("isActive");
     }
     else {
