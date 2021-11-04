@@ -17,8 +17,8 @@ links.forEach((link) => {
     if(e.target.dataset.nav) {
       document.getElementById(e.target.dataset.nav).scrollIntoView({behavior: "smooth"});
     }
-  })
-})
+  });
+});
 
 // to show the menu when clicking on the "Other Links"
 megaMenuLink.onclick = () => {
@@ -62,7 +62,7 @@ window.onkeydown = (e) => {
     megaMenuLink.classList.remove("active");
     megaMenu.classList.remove("active");
   }
-}
+};
 
 // scroll to top
 toUp.addEventListener("click", () => {
@@ -99,5 +99,5 @@ inputs.forEach((input) => {
     else {
       input.classList.remove("valid");
     }
-  })
-})
+  });
+});
