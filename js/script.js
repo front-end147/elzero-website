@@ -3,11 +3,14 @@ const links = document.querySelectorAll("#link");
 const megaMenuLink = document.querySelector(".externalLink");
 const megaMenu = document.querySelector(".mega__menu");
 const toUp = document.querySelector("#toUp");
+const inputs = document.querySelectorAll("#input");
+const sections = document.querySelectorAll("section");
 const skillsSection = document.getElementById("our-skills");
 let spans = document.querySelectorAll(".progressFill span");
 const counterBox = document.querySelector(".counterBox");
-const inputs = document.querySelectorAll("#input");
-const sections = document.querySelectorAll("section");
+const statsSection = document.querySelector("#stats");
+const numbers = document.querySelectorAll("#stats .number");
+let started = false; // function started ? No
 
 // loop for each link in the nav menu
 links.forEach((link) => {
@@ -45,6 +48,15 @@ window.addEventListener("scroll", () => {
       span.style.width = `${span.dataset.percent}%`;
     });
   }
+  // to make the number start to the desired number
+  if (window.scrollY >= statsSection.offsetTop - 400) {
+    if (!started) {
+      numbers.forEach((number) => {
+        startCount(number);
+      });
+      started = true;
+    }
+  }
   // if section is in the viewport the main__heading will be animate like the hover
   sections.forEach((section) => {
     if (section.getBoundingClientRect().top >= -500 && section.getBoundingClientRect().top <= 150) {
@@ -55,6 +67,16 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+//function to get the data attribute and count to it
+function startCount(e) {
+  let num = e.dataset.num;
+  let count = setInterval(() => {
+    e.textContent++;
+    if (e.textContent == num) {
+      clearInterval(count);
+    }
+  }, 1000 / num);
+}
 
 // to close the menu by clicing on "Esc" button on the keyboard
 window.onkeydown = (e) => {
