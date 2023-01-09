@@ -92,8 +92,9 @@ toUp.addEventListener("click", () => {
 });
 
 // variable to the desierd date
-let futureDate = new Date("Nov 15, 2021 23:59:59").getTime();
+let futureDate = new Date("April 05, 2023 23:59:59").getTime();
 // interval to calc the days, hours, minutes and seconds which are remaining from now to the desierd date
+// let remainTime = futureDate - new Date().getTime();
 let counter = setInterval(() => {
   let remainTime = futureDate - new Date().getTime();
   let days = Math.floor(remainTime / (1000 * 60 * 60 * 24));
